@@ -11,6 +11,8 @@ gem 'sinatra-activerecord'
 gem 'puma'
 gem 'tux'
 
+gem 'las_reader', git:'https://github.com/thatmose/cwls-las-reader.git'
+
 # These gems are only installed when run as `bundle install --without production`
 group :development, :test do
   gem 'pry'
