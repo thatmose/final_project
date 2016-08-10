@@ -16,4 +16,12 @@ RSpec.describe LogWellView do
     end
   end
 
+  describe "/display" do
+    it "returns a JSON object with well data" do
+      get '/display', url: :"http://aogweb.state.ak.us/DigLog/OffshoreFederal/55141000040000.LAS"
+      expect(last_response.status).to eq(200)
+      expect(last_response.header["Content-Type"]).to eq('application/json')
+    end
+  end
+
 end
