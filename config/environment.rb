@@ -36,4 +36,4 @@ end
 require APP_ROOT.join('config', 'database')
 
 # Load the routes / actions
-require APP_ROOT.join('app', 'actions')
+require APP_ROOT.join('app', 'log_well_view')
