@@ -24,6 +24,8 @@ group :development, :test do
   gem 'rspec'
   gem "rack-test"
 
+  gem 'fakefs'
+
 end
 
 # bundle install --without test --without development
