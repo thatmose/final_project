@@ -1,15 +1,23 @@
+require 'net/http'
+require 'rubygems'
 require 'las_reader'
-# Homepage (Root path)
-my_las = CWLSLas.new('./example24_check.las')
-# # p my_las
-# # p my_las.to_json
-# test_curve = my_las.curve('GR')
-# depth_curve = my_las.curve('DEPTH')
-# another_curve = my_las.curve('SFL')
-# yanother_curve = my_las.curve('ILM')
-
-# p my_las.country
+require 'json'
+require_relative 'well'
 
 get '/' do
   erb :index
+end
+
+get '/display' do
+  @url = params[:url]
+  uri = URI(@url)
+  @filename = (/[^\/]*$/.match(@url))
+  File.open("#{@filename}", "w") {|f| f.write(Net::HTTP.get(uri)) }
+  @worklas = CWLSLas.new("#{@filename}")
+  @current_well = Well.new(@worklas)
+  #Write to json file
+  File.open("#{@filename}.json", "w") {|f| f.write(@current_well.welldata.to_json) }
+  puts @current_well.welldata.to_json
+  erb :'/display'
+   
 end
