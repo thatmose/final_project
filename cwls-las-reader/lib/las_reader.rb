@@ -1,8 +1,8 @@
-require "las_reader/version"
-require "las_reader/curve_info"
-require "las_reader/curve"
-require "las_reader/mnemonic"
-require "las_reader/well_info"
+require_relative "./las_reader/version"
+require_relative "./las_reader/curve_info"
+require_relative "./las_reader/curve"
+require_relative "./las_reader/mnemonic"
+require_relative "./las_reader/well_info"
 
 module LasReader
 
@@ -416,6 +416,22 @@ module LasReader
 
   def country
     self.well_info.country
+  end
+
+  def step
+    self.well_info.step
+  end
+
+  def start_depth
+    self.well_info.start_depth
+  end
+
+  def stop_depth
+    self.well_info.stop_depth
+  end
+
+  def depth_unit
+    self.well_info.depth_unit
   end
 
 end
