@@ -3,10 +3,10 @@ require 'las_reader'
 require 'json'
 require_relative 'well'
 
-# class LogWellView < Sinatra::Base
+class LogWellView < Sinatra::Base
 
   get '/' do
-    erb :index
+     erb :index
   end
 
   get '/display' do
@@ -24,4 +24,4 @@ require_relative 'well'
 
   end
 
-# end
+end
