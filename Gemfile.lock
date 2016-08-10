@@ -21,10 +21,6 @@ GEM
     arel (7.1.1)
     backports (3.6.8)
     bond (0.5.1)
-    coderay (1.1.1)
-    concurrent-ruby (1.0.2)
-    i18n (0.7.0)
-    method_source (0.8.2)
     carrierwave (0.11.2)
       activemodel (>= 3.2.0)
       activesupport (>= 3.2.0)
@@ -96,7 +92,6 @@ PLATFORMS
 
 DEPENDENCIES
   activesupport
-  las_reader!
   carrierwave
   las_reader!
   mini_magick

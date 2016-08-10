@@ -1,5 +1,4 @@
 require 'net/http'
-require 'rubygems'
 require 'las_reader'
 require 'json'
 require_relative 'well'
@@ -9,6 +8,7 @@ get '/' do
 end
 
 get '/display' do
+  content_type :json
   @url = params[:url]
   uri = URI(@url)
   @filename = (/[^\/]*$/.match(@url))
@@ -17,7 +17,7 @@ get '/display' do
   @current_well = Well.new(@worklas)
   #Write to json file
   File.open("#{@filename}.json", "w") {|f| f.write(@current_well.welldata.to_json) }
-  puts @current_well.welldata.to_json
-  erb :'/display'
+  
+  @current_well.welldata.to_json
    
 end
